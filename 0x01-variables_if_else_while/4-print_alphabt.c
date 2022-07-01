@@ -8,14 +8,10 @@
 int main(void)
 {
 	char ch;
-	char CH;
-	char sign = '$\n';
 
 	for (ch = 'a'; ch <= 'z'; ch++)
-		putchar(ch);
-	for (CH = 'A'; CH <= 'Z'; CH++)
-		putchar(ch);
-
-	putchar(sign);
+		if (ch != 'e' && ch != 'q')
+			putchar(ch);
+	putchar('\n');
 	return (0);
 }
