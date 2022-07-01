@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* main function that contains the body of the code */
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	int n;
