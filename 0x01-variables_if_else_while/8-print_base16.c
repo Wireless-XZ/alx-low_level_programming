@@ -7,12 +7,13 @@
  */
 int main(void)
 {
-	char hex;
+	int a;
+	int b;
 
-	for (hex = 0x30; hex <= 0x39; hex++)
-		putchar(hex);
-	for (hex = 0x61; hex <= 0x65; hex++)
-		putchar(hex);
+	for (a = 48; a < 58; a++)
+		putchar(a);
+	for (b = 97; b < 103; b++)
+		putchar(b);
 	putchar('\n');
 	return (0);
 }
