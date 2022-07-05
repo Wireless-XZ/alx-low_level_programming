@@ -2,7 +2,7 @@
 
 /**
  * _abs - Removes all negative sign from an integer
- * @int: The integer
+ * @c: The integer
  *
  * Return: Always a positive integer if code runs successfully
  */
