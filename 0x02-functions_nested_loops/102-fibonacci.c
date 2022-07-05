@@ -8,17 +8,17 @@
  */
 int main(void)
 {
-	long long int a, b, c, x;
+	signed long int a, b, c, x;
 
 	a = 1;
 	b = 2;
 	c = a + b;
 
-	printf("%lld, %lld, ", a, b);
+	printf("%ld, %ld, ", a, b);
 
 	for (x = 3; x <= 50; ++x)
 	{
-		printf("%lld", c);
+		printf("%ld", c);
 		a = b;
 		b = c;
 		c = a + b;
