@@ -8,12 +8,11 @@
  */
 int main(void)
 {
-	unsigned long int a, b, c, x, k;
+	unsigned long int a, b, c, x;
 
 	a = 1;
 	b = 2;
 	c = a + b;
-	k = 0;
 
 	printf("%lu, %lu, ", a, b);
 
