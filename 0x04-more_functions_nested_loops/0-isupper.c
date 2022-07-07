@@ -8,21 +8,17 @@
 int _isupper(int c)
 {
 	int result;
-	
-	if (c != 127)
+
+	if (c >= 0 && c <= 127)
 	{
-		if (c >= 0 && c <= 90)
+		if (!(c >= 33 && c <= 64) && !(c >= 91 && c <= 126))
 		{
-			if (!(c >= 33 && c <= 64))
-			{
-				result = 1;
-			}
+			result = 1;
 		}
+
 		else
 			result = 0;
 	}
-	else
-		result = 0;
 
 	return (result);
 }
