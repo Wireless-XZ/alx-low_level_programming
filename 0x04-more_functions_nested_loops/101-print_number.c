@@ -8,7 +8,7 @@
  */
 void print_number(int n)
 {
-	int holder = 1, dummy = n, x;
+	unsigned int holder = 1, dummy = n, x;
 
 	if (n < 0)
 	{
