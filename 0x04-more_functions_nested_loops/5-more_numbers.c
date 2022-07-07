@@ -7,28 +7,22 @@
  */
 void more_numbers(void)
 {
-	int i;
-	int j;
-	int count;
+	int a = 48, b = 48, c, i;
 
-	count = 0;
-	j = 49;
-
-	while (count >= 0 && count <= 5)
+	for (i = 0; i < 10; i++)
 	{
-		if (count != 6)
+		while (b < 53)
 		{
-			for (i = 48; i <= 57; ++i)
-			{
-				_putchar(i);
-				if ((i == 57) || (count >= 1 && count <= 4))
-				{
-					_putchar(j);
-					++count;
-				}
-				else if (i == 52 && count == 5)
-					++count;
-			}
+			if (a <= 57)
+				c = a++;
+			else
+				c = 49;
+			_putchar(c);
+
+			if (a == 58 && c == 49)
+				_putchar(b++);
 		}
+		a = 48, b = 48;
+		_putchar('\n');
 	}
 }
