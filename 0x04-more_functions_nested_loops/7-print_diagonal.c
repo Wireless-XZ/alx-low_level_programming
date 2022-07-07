@@ -6,20 +6,29 @@
  *
  * Return: void
  */
-void print_line(int n)
+void print_diagonal(int n)
 {
 	int count;
+	int x;
 
-	count = 1;
+	count = 0;
 	while (n > 0)
 	{
+		x = 0;
+		count += 1;
 		_putchar('\\');
-		_putchar('\n');
-		--n;
-		while (count > 0)
+		if (n != 1)
+			_putchar('\n');
+		n -= 1;
+		while (n > 0 && x < count)
 		{
 			_putchar(' ');
-			--count;
+			x++;
+		}
 	}
-	_putchar('\n');
+
+	if (n <= 0)
+		_putchar('\n');
+
+	/*_putchar('\n');*/
 }
