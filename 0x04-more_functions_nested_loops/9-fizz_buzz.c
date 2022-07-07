@@ -30,7 +30,7 @@ int main(void)
 				printf("%d ", i);
 		}
 		else
-			printf("Buzz\n");
+			printf("Buzz \n");
 	}
 	return (0);
 }
