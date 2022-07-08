@@ -7,9 +7,9 @@
  */
 int main(void)
 {
-	unsigned long int n = 612852475143, i, j;
+	unsigned long int n = 612852475143, i;
 
-	for (i = 3; i <= 612852475143; i = i + 2)
+	for (i = 3; i < 782849; i = i + 2)
 	{
 		while ((n % i == 0) && (i != n))
 			n = n / i;
