@@ -1,1 +1,1 @@
-ALX C programming
+Pointers, arrays and strings in C
