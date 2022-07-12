@@ -1,1 +1,1 @@
-Pointers, arrays and strings in C
+ALX low level C-programming
