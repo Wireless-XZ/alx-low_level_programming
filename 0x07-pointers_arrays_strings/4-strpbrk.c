@@ -10,7 +10,7 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	int i, j;
+	unsigned int i, j;
 
 	for (i = 0; s[i]; i++)
 	{
@@ -20,9 +20,9 @@ char *_strpbrk(char *s, char *accept)
 			{
 				break;
 			}
-			if (accept[j])
-				return (s + i);
 		}
+		if (accept[j])
+			return (s + i);
 	}
 	return (0);
 }
