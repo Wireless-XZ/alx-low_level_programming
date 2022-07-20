@@ -14,7 +14,7 @@ int multiply(int num, int c)
 		return (num);
 	if (num * num > c)
 		return (-1);
-	return(multiply(num + 1, c));
+	return (multiply(num + 1, c));
 }
 
 /**
