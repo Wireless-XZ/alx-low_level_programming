@@ -29,11 +29,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		free(s3);
 		return (NULL);
 	}
-	for (i = 0; s1[i]; i++)
+	for (i = 0; i < strlen(s1); i++)
 		s3[i] = s1[i];
 	if (n >= strlen(s2))
 	{
-		for (j = 0; s2[j]; j++)
+		for (j = 0; j < strlen(s2); j++)
 		{
 			s3[i] = s2[j];
 			i++;
@@ -46,7 +46,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			s3[i] = s2[j];
 			i++;
 		}
-		s3[i] = '\0';
 	}
+	s3[i] = '\0';
 	return (s3);
 }
