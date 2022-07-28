@@ -21,9 +21,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		j = 0;
 	if (n >= strlen(s2))
-		s3 = malloc(sizeof(*s3) * (strlen(s1) + strlen(s2) + 1));
+		s3 = malloc(sizeof(*s3) * (strlen(s1) + strlen(s2) + 2));
 	else
-		s3 = malloc(sizeof(*s3) * (strlen(s1) + n + 1));
+		s3 = malloc(sizeof(*s3) * (strlen(s1) + n + 2));
 	if (s3 == NULL)
 	{
 		free(s3);
