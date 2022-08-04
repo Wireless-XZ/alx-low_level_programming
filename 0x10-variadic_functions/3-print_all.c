@@ -11,11 +11,11 @@
 
 int count(const char * const frmt)
 {
-	int i = 0;
+	int j = 0;
 
-	while (frmt[i])
-		i++;
-	return (i);
+	while (frmt[j])
+		j++;
+	return (j);
 }
 
 
@@ -33,7 +33,7 @@ void print_all(const char * const format, ...)
 
 	va_start(valist, format);
 
-	while (format && format[i])
+	while (format[i])
 	{
 		switch (format[i])
 		{
