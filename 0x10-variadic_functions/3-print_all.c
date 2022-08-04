@@ -27,7 +27,7 @@ int count(const char * const frmt)
 void print_all(const char * const format, ...)
 {
 	va_list valist;
-	int i = 0, x;
+	int i = 0, x = 1;
 	char *str;
 	int n = count(format);
 
@@ -58,7 +58,6 @@ void print_all(const char * const format, ...)
 			printf(", ");
 		i++;
 		x = 1;
-
 	}
 	printf("\n");
 	va_end(valist);
