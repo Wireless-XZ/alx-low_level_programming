@@ -11,6 +11,7 @@ void print_all(const char * const format, ...)
 {
 	va_list valist;
 	int i= 0;
+	char *str;
 
 	va_start(valist, format);
 
@@ -28,7 +29,8 @@ void print_all(const char * const format, ...)
 			printf("%f, ", va_arg(valist, double));
 			break;
 		case 's':
-			printf("%s\n", va_arg(valist, char *));
+			str = va_arg(valist, char *);
+			str ? printf("%s\n", str) : printf("(nil)");
 			break;
 		default:
 			break;
