@@ -3,62 +3,51 @@
 #include <stdarg.h>
 
 /**
- * count - count the no. of elements in an array
- * @frmt: the array
+ * print_all - prints anything.
+ * @format: a list of types of arguments passed to the function.
  *
- * Return: no. of elements in frmt
+ * Return: no return.
  */
-
-int count(const char * const frmt)
-{
-	int j = 0;
-
-	while (frmt[j])
-		j++;
-	return (j);
-}
-
-
-/**
- * print_all - a function that prints anything
- * @format: list of types
- */
-
 void print_all(const char * const format, ...)
 {
 	va_list valist;
-	int i = 0, x = 1;
+	unsigned int i = 0, j, c = 0;
 	char *str;
-	int n = count(format);
+	const char t_arg[] = "cifs";
 
 	va_start(valist, format);
-
 	while (format && format[i])
 	{
+		j = 0;
+		while (t_arg[j])
+		{
+			if (format[i] == t_arg[j] && c)
+			{
+				printf(", ");
+				break;
+			} j++;
+		}
 		switch (format[i])
 		{
 		case 'c':
-			printf("%c", va_arg(valist, int));
+			printf("%c", va_arg(valist, int)), c = 1;
 			break;
 		case 'i':
-			printf("%d", va_arg(valist, int));
+			printf("%d", va_arg(valist, int)), c = 1;
 			break;
 		case 'f':
-			printf("%f", va_arg(valist, double));
+			printf("%f", va_arg(valist, double)), c = 1;
 			break;
 		case 's':
-			str = va_arg(valist, char *);
-			str ? printf("%s", str) : printf("(nil)");
+			str = va_arg(valist, char *), c = 1;
+			if (!str)
+			{
+				printf("(nil)");
+				break;
+			}
+			printf("%s", str);
 			break;
-		default:
-			x = 0;
-			break;
-		}
-		if (i < n - 1 && x)
-			printf(", ");
-		i++;
-		x = 1;
+		} i++;
 	}
-	printf("\n");
-	va_end(valist);
+	printf("\n"), va_end(valist);
 }
