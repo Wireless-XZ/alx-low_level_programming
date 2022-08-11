@@ -1,13 +1,20 @@
 #ifndef _LIST_H_
 #define _LIST_H_
 
-typedef struct node * nodeptr;
-
-struct node{
+/**
+ * struct node - structure for linked list
+ * @str: string data
+ * @len: length of string data
+ * @next: pointer to next element on the list
+ */
+struct node
+{
 	char *str;
 	int len;
 	nodeptr next;
 };
+
+typedef struct node *nodeptr
 
 typedef struct node list_t;
 
