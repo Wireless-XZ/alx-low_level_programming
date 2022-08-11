@@ -7,16 +7,12 @@
  * @len: length of string data
  * @next: pointer to next element on the list
  */
-struct node
+typedef struct node
 {
 	char *str;
 	int len;
-	nodeptr next;
-};
-
-typedef struct node *nodeptr
-
-typedef struct node list_t;
+	struct node *next;
+} list_t;
 
 #include <stdlib.h>
 #include <string.h>
