@@ -10,6 +10,9 @@ listint_t *reverse_listint(listint_t **head)
 {
 	listint_t *temp = *head, *next;
 
+	if (head == NULL || *head == NULL)
+		return (NULL);
+
 	if ((*head)->next)
 	{
 		*head = (*head)->next;
