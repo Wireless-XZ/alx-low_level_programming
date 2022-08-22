@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 	fd_to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (fd_to == -1)
 	{
+		close(fd_from);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
@@ -37,6 +38,8 @@ int main(int argc, char *argv[])
 	read_len = read(fd_from, buffer, 1024);
 	if (read_len == -1)
 	{
+		close(fd_from);
+		close(fd_to);
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
