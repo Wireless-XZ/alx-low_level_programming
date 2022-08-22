@@ -34,21 +34,21 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	read_len = read(fd_from, buffer, 1024);
-	if (read_len == -1)
+	while (read_len == 1024)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
+		read_len = read(fd_from, buffer, 1024);
+		if (read_len == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
 
-	write_len = write(fd_to, buffer, read_len);
-	if (write_len == -1)
-	{
-		close(fd_from);
-		close(fd_to);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
+		write_len = write(fd_to, buffer, read_len);
+		if (write_len == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}
 
 	close_to = close(fd_to);
 	if (close_to == -1)
