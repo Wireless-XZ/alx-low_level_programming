@@ -26,6 +26,11 @@ void _cp(char *file_from, char *file_to)
 	}
 
 	len = read(from, buffer, 1024);
+	if (len == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
 	close_from = close(from);
 	if (close_from == -1)
 	{
