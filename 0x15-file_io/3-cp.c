@@ -7,9 +7,10 @@ void dummy(void);
  * @file_from: file to copy from
  * @file_to: file to copy to
  *
+ * Return: 1 on success
  */
 
-void _cp(char *file_from, char *file_to)
+int _cp(char *file_from, char *file_to)
 {
 	int fd_from, fd_to, close_to, close_from, write_len, read_len;
 	char buffer[1024];
@@ -56,6 +57,8 @@ void _cp(char *file_from, char *file_to)
 		dprintf(2, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
 	}
+
+	return (1);
 }
 
 /**
