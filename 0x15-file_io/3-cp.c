@@ -3,29 +3,41 @@
 void dummy(void);
 
 /**
- * _cp - copies the content of a file to another
- * @file_from: file to copy from
- * @file_to: file to copy to
+ * main - contains the main function of the program
+ * @argc: number of arguments passsed on the CLI
+ * @argv: pointer to argument string
  *
- * Return: 1 on success
+ * Return: Always 0 if successful
  */
-
-int _cp(char *file_from, char *file_to)
+int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, close_to, close_from, write_len, read_len;
+	int fd_to, fd_from, write_len, read_len, close_from, close_to;
 	char buffer[1024];
 
-	fd_from = open(file_from, O_RDONLY);
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+
+	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
+	}
+
+	fd_to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	if (fd_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
 
 	read_len = read(fd_from, buffer, 1024);
 	if (read_len == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
@@ -36,18 +48,10 @@ int _cp(char *file_from, char *file_to)
 		exit(100);
 	}
 
-
-	fd_to = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (fd_to == -1)
-	{
-		dprintf(2, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
-
 	write_len = write(fd_to, buffer, read_len);
 	if (write_len == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", file_to);
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 
@@ -58,25 +62,11 @@ int _cp(char *file_from, char *file_to)
 		exit(100);
 	}
 
-	return (1);
-}
-
-/**
- * main - Contains the main body of the function
- * @argc: Number of arguments passed to CLI
- * @argv: Pointer to argument strings
- *
- * Return: Always 0
- */
-int main(int argc, char *argv[])
-{
-	if (argc != 3)
+	if (write_len != read_len)
 	{
-		dprintf(2, "Usage: cp file_from file_to/n");
-		exit(97);
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
-	_cp(argv[1], argv[2]);
-
 	return (0);
 }
 
