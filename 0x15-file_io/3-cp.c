@@ -11,7 +11,7 @@ void dummy(void);
  */
 int main(int argc, char *argv[])
 {
-	int fd_to, fd_from, write_len, read_len, close_from, close_to;
+	int fd_to, fd_from, write_len, read_len = 1024, close_from, close_to;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
+	}
 
 	close_to = close(fd_to);
 	if (close_to == -1)
