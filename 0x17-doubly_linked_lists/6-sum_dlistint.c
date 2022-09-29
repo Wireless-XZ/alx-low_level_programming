@@ -12,11 +12,10 @@ int sum_dlistint(dlistint_t *head)
 
 	if (head == NULL)
 		return (0);
-	for (i = 0; head->next; i++)
+	for (i = 0; head; i++)
 	{
 		sum += head->n;
 		head = head->next;
 	}
-	sum += head->n;
 	return (sum);
 }
