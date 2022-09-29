@@ -1,7 +1,5 @@
 #include "lists.h"
 
-void lol(void);
-
 /**
  * insert_dnodeint_at_index - inserts a new node at a given position
  * @h: head node
@@ -39,12 +37,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	if (i == idx)
 		add_dnodeint_end(h, n);
+	free(new);
 	return (NULL);
-}
-
-/**
- * lol - to trick betty
- */
-void lol(void)
-{
 }
