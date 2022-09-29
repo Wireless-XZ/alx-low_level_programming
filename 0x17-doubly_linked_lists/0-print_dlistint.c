@@ -9,9 +9,9 @@
 size_t print_dlistint(const dlistint_t *h)
 {
 	const dlistint_t *dummy = h;
-	long unsigned int len = 0;
+	unsigned long int len = 0;
 
-	while(dummy)
+	while (dummy)
 	{
 		printf("%d\n", dummy->n);
 		dummy = dummy->next;
