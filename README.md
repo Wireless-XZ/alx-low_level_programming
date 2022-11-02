@@ -78,4 +78,6 @@ You can now type `betty <filename>` to run the Betty linter!
 20. [0x13-more_singly_linked_lists](https://github.com/Wireless-XZ/alx-low_level_programming/tree/master/0x13-more_singly_linked_lists)
 21. [0x14-bit_manipulation](https://github.com/Wireless-XZ/alx-low_level_programming/tree/master/0x14-bit_manipulation)
 22. [0x15-file_io](https://github.com/Wireless-XZ/alx-low_level_programming/tree/master/0x15-file_io)
-
+23. [0x16-simple_shell](https://github.com/arabiu033/simple_shell)
+24. [0x17-doubly_linked_lists](https://github.com/Wireless-XZ/alx-low_level_programming/tree/master/0x17-doubly_linked_lists)
+25. [0x18-dynamic_libraries](https://github.com/Wireless-XZ/alx-low_level_programming/tree/master/0x18-dynamic_libraries) 
